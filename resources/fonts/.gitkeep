@@ -1,0 +1,2 @@
+# Placeholder directory for optional bundled fonts.
+# Publish with: php artisan vendor:publish --tag=unicode-pdf-fonts

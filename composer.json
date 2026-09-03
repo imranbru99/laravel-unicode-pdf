@@ -1,0 +1,108 @@
+{
+    "name": "imrandevbd/laravel-unicode-pdf",
+    "description": "Universal Unicode and multilingual PDF generation for Laravel with reliable RTL, complex-script, and intelligent font fallback support.",
+    "keywords": [
+        "laravel",
+        "pdf",
+        "unicode",
+        "multilingual",
+        "bengali",
+        "arabic",
+        "hindi",
+        "urdu",
+        "cjk",
+        "rtl",
+        "hebrew",
+        "thai",
+        "khmer",
+        "ethiopic",
+        "font-fallback",
+        "dompdf",
+        "mpdf",
+        "tcpdf",
+        "browsershot"
+    ],
+    "homepage": "https://github.com/imranbru99/laravel-unicode-pdf",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Imran Dev BD",
+            "email": "me@imrandev.bd",
+            "homepage": "https://imrandev.bd",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2|^8.3|^8.4|^8.5",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/view": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/filesystem": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
+        "ext-mbstring": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+        "pestphp/pest": "^2.0|^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0",
+        "laravel/pint": "^1.13",
+        "phpstan/phpstan": "^1.10|^2.0"
+    },
+    "suggest": {
+        "dompdf/dompdf": "Optional Dompdf rendering engine (^2.0|^3.0) — the built-in native engine needs no extra package",
+        "mpdf/mpdf": "Optional mPDF engine for comparison with the built-in native shaper (^8.0)",
+        "tecnickcom/tcpdf": "Optional TCPDF engine (^6.6)",
+        "spatie/browsershot": "Optional Chromium/Browsershot engine for CSS Grid/Flex (^3.0|^4.0)",
+        "illuminate/mail": "Required for UnicodePdfDocument::toMailAttachment()",
+        "illuminate/queue": "Required for queued PDF generation via ->queue()",
+        "illuminate/cache": "Required for rendered PDF output caching via ->cache()",
+        "ext-intl": "Enables high-performance Unicode normalization and transliteration",
+        "ext-gd": "Enables image processing and thumbnail rendering"
+    },
+    "autoload": {
+        "psr-4": {
+            "ImranDev\\UnicodePdf\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ImranDev\\UnicodePdf\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ImranDev\\UnicodePdf\\UnicodePdfServiceProvider"
+            ],
+            "aliases": {
+                "UnicodePdf": "ImranDev\\UnicodePdf\\Facades\\UnicodePdf"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test:unit": "vendor/bin/pest --testsuite=Unit",
+        "test:feature": "vendor/bin/pest --testsuite=Feature",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "lint": "vendor/bin/pint --test",
+        "fix": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

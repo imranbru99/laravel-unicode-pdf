@@ -1,0 +1,22 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: 5
+    paths:
+        - src
+        - config
+    ignoreErrors:
+        - '#Class Dompdf\\[a-zA-Z0-9\\_]+ not found#'
+        - '#Instantiated class Dompdf\\[a-zA-Z0-9\\_]+ not found#'
+        - '#Call to method [a-zA-Z0-9\\_]+\(\) on an unknown class Dompdf\\[a-zA-Z0-9\\_]+#'
+        - '#Class Mpdf\\[a-zA-Z0-9\\_]+ not found#'
+        - '#Class TCPDF not found#'
+        - '#Class Spatie\\Browsershot\\Browsershot not found#'
+        - '#Call to an undefined method [a-zA-Z0-9\\_]+::page_text\(\)#'
+        - '#Call to an undefined method [a-zA-Z0-9\\_]+::getCanvas\(\)#'
+        - '#Call to an undefined method [a-zA-Z0-9\\_]+::get_cpdf\(\)#'
+        -
+            identifier: trait.unused
+            path: src/Concerns/GeneratesPdf.php
+    reportUnmatchedIgnoredErrors: false
